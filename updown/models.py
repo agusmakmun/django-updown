@@ -31,7 +31,7 @@ class Vote(models.Model):
     date_added = models.DateTimeField(default=timezone.now, editable=False)
     date_changed = models.DateTimeField(default=timezone.now, editable=False)
 
-    content_object = GenericForeignKey()
+    content_object = GenericForeignKey('content_type', 'object_id')
 
     class Meta:
         unique_together = (('content_type', 'object_id', 'key', 'user',
