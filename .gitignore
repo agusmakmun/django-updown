@@ -1,7 +1,8 @@
 *.pyc
 dist/
 build/
-django_updown.egg-info/
+*.egg-info/
 env/
 .cache/
 .tox/
+*backup*
