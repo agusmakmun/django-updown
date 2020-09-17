@@ -11,6 +11,7 @@ from updown.exceptions import InvalidRating, AuthRequired, CannotChangeVote
 
 
 class AddRatingView(object):
+
     def __call__(self, request, content_type_id, object_id, field_name, score):
         """__call__(request, content_type_id, object_id, field_name, score)
 
@@ -90,6 +91,7 @@ class AddRatingView(object):
 
 
 class AddRatingFromModel(AddRatingView):
+
     def __call__(self, request, model, app_label, object_id, field_name,
                  score, **kwargs):
         """__call__(request, model, app_label, object_id, field_name, score)

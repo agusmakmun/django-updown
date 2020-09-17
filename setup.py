@@ -19,12 +19,13 @@ version = get_version('updown')
 setup(
     name='django-updown-ratings',
     version=version,
-    description='Reusable Django application for youtube \
-    like up and down voting.',
+    description='Reusable Django application for youtube like up and down voting.',
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     author='Daniel Banck, Agus Makmun',
     author_email='dbanck@weluse.de',
     url='http://github.com/agusmakmun/django-updown-ratings/tree/master',
-    packages=find_packages(),
+    packages=find_packages(exclude=["*demo"]),
     zip_safe=False,
     classifiers=[
         'Development Status :: 5 - Production/Stable',

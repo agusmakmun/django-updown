@@ -3,7 +3,9 @@
 > Simple Django application for adding Youtube like up and down voting. \
 > This [`django-updown-ratings`][1] is forked from [`django-updown`][2] to support the newest django version.
 
-[![Build Status](https://secure.travis-ci.org/agusmakmun/django-updown-ratings.png?branch=master)][3]
+[![build status][3]][4]
+[![django version][5]][6]
+[![python version][7]][8]
 
 ## Install
 
@@ -38,19 +40,28 @@ Now you can write your own view to submit ratings or use the predefined:
 from updown.views import AddRatingFromModel
 
 urlpatterns = [
-  ...
-  path('<int:object_id>/rate/<str:score>', AddRatingFromModel(), {
-      'app_label': 'post',
-      'model': 'Post',
-      'field_name': 'rating'
-  }, name='post_rating'),
+    ....
+
+    path('<int:object_id>/rate/<str:score>', AddRatingFromModel(), {
+        'app_label': 'blogapp',
+        'model': 'Post',
+        'field_name': 'rating'
+    }, name='post_rating'),
 ]
 ```
 
-To submit a vote just go to ``post/<id>/rate/(1|-1)``. If you allowed users to
+To submit a vote just go to `post/<id>/rate/(1|-1)`. If you allowed users to
 change they're vote, they can do it with the same url.
 
 
 [1]: https://github.com/agusmakmun/django-updown-ratings
 [2]: https://github.com/weluse/django-updown
-[3]: http://travis-ci.org/agusmakmun/django-updown-ratings
+
+[3]: https://secure.travis-ci.org/agusmakmun/django-updown-ratings.png?branch=master
+[4]: http://travis-ci.org/agusmakmun/django-updown-ratings
+
+[5]: https://img.shields.io/badge/Django-2.0%20%3E=%203.1-green.svg
+[6]: https://www.djangoproject.com
+
+[7]: https://img.shields.io/pypi/pyversions/django-updown-ratings.svg
+[8]: https://pypi.python.org/pypi/django-updown-ratings

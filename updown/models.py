@@ -18,6 +18,7 @@ SCORE_TYPES = dict((value, key) for key, value in _SCORE_TYPE_CHOICES)
 
 
 class Vote(models.Model):
+    id = models.BigAutoField(primary_key=True)
     content_type = models.ForeignKey(ContentType, related_name="updown_votes",
                                      on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
