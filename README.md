@@ -53,6 +53,25 @@ urlpatterns = [
 To submit a vote just go to `post/<id>/rate/(1|-1)`. If you allowed users to
 change they're vote, they can do it with the same url.
 
+#### Template
+
+You can directly use this properties in the template, e.g:
+
+```
+{{ post.rating.likes }}
+{{ post.rating.dislikes }}
+{{ post.rating.get_difference }}
+{{ post.rating.get_quotient }}
+```
+
+**Properties:**
+
+- `.likes` show total likes
+- `.dislikes` show total dislikes
+- `.get_difference` get diff between _likes_ and _dislikes_ (`likes - dislikes`).
+- `.get_quotient` get quotient between _likes_ and _dislikes_ (`likes / max(dislikes)`).
+
+
 
 [1]: https://github.com/agusmakmun/django-updown-ratings
 [2]: https://github.com/weluse/django-updown
