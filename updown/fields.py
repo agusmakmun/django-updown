@@ -2,6 +2,7 @@
 Fields needed for the updown ratings
 """
 from __future__ import unicode_literals
+from django.contrib.contenttypes.models import ContentType
 
 from django.db.models import IntegerField, PositiveIntegerField
 from django.conf import settings
@@ -15,7 +16,6 @@ if 'django.contrib.contenttypes' not in settings.INSTALLED_APPS:
     raise ImportError("django-updown requires django.contrib.contenttypes "
                       "in your INSTALLED_APPS")
 
-from django.contrib.contenttypes.models import ContentType
 
 __all__ = ('Rating', 'RatingField', 'AnonymousRatingField')
 
@@ -50,7 +50,7 @@ class RatingManager(object):
             return user.is_authenticated()
         return user.is_authenticated
 
-    def get_rating_for_user(self, user, ip_address=None):
+    def get_rating_for_user(self, user=None, ip_address=None):
         kwargs = {
             'content_type': self.get_content_type(),
             'object_id': self.instance.pk,
